@@ -1,33 +1,33 @@
 import React from 'react'
 import './App.css'
 import Header from './components/header'
-import Input from './components/inputs'
-import Todo from './components/todos'
+import Messages from './components/messages'
+import SendMessage from './components/sendMessage'
+import firebase from './firebase/index'
 
 class App extends React.Component {
   state = {
-    todos: [],
+    user: 'Random User',
+    messages : []
   }
 
-  handleClick = input => {
-    const todo = {
-      key: Date.now().toString(),
-      text: input,
-    }
-    this.setState({ todos: [...this.state.todos, todo] })
+  componentDidMount() {
+    const db = firebase.firestore()
+    db.collection('messages').orderBy('time_stamp','desc').onSnapshot(snapshot => {
+      let messages = snapshot.docs.map(doc => ({ key: doc.id, ...doc.data() }))
+      this.setState({messages})
+    })
   }
 
-  removeTodo = key => {
-    this.setState({ todos: this.state.todos.filter(todo => todo.key !== key) })
-  }
+  setUser = user => this.setState({ user })
 
   render() {
     return (
-      <div className='main-div'>
-        <Header title='Todo Application' />
-        <Input handleClick={this.handleClick} />
-        <Todo todos={this.state.todos} removeTodo={this.removeTodo} />
-      </div>
+      <>
+        <Header title='Messenger Chat' />
+        <Messages setUser={this.setUser} messages={this.state.messages} user={this.state.user}/>
+        <SendMessage user={this.state.user}/>
+      </>
     )
   }
 }

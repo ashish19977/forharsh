@@ -1,56 +1,40 @@
 .header-div {
-  width: 100%;
-  background-color: grey;
-  height: 8%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: larger;
-}
-.main-div {
-  width: 100%;
-  height: 100%;
-}
-.input-div {
-  background-color: orange;
-  width: 80%;
-  margin: 0 10% 0 10%;
+  color:  #083dcb ;
   height: 10%;
-  margin-top: 2%;
+  background-color:  #c0cef6 ;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: x-large;
 }
-
-button:hover {
-  cursor: pointer;
-  scale: 0.98;
-}
-.todo-main {
-  margin: 2% 10% 0 10%;
-  height: 68%;
-  width: 80%;
+.messages-div{
+  background-color:  #f3e6fa ;
+  height: 75%;
+  overflow: auto;
+  padding: 1% 2% 1% 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 10;
 }
-span {
-  margin-left: 10px;
-}
-span:hover {
-  cursor: pointer;
-  scale: 1.2;
-  opacity: 0.7;
-}
-.todo {
-  margin-top: 5px;
+.send-message-div{
+  height: 8%;
+  margin: 0 2% 0 2%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: center !important;
+  flex-direction: row;
+}
+.send-btn{
+padding: 5px 0 0 20px;
+}
+.send-btn:hover{
+  cursor: pointer;
+  scale: 1.05;
+}
+
+.message-div{
   padding: 5px;
   border-radius: 5px;
-  background-color: #e8daef;
+  background-color:   #d4cae5 ;
+  color:  #640fe7 ;
+  margin: 10px 0 10px 0;
 }
