@@ -20,7 +20,7 @@ export default (props) => {
     <div className='messages-div'>
       {
         props.messages.map(doc =>
-          <Message key={doc.key} doc={doc} user={props.user}/>
+          <Message key={doc.key} message={doc.message} user={doc.name}/>
         )
       }
     </div>

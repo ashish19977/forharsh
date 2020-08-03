@@ -9,18 +9,16 @@
 }
 .messages-div{
   background-color:  #f3e6fa ;
-  height: 75%;
+  height: 80%;
   overflow: auto;
-  padding: 1% 2% 1% 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .send-message-div{
-  height: 8%;
-  margin: 0 2% 0 2%;
+  height: 10%;
   display: flex;
-  align-items: center !important;
+  align-items: center;
   flex-direction: row;
 }
 .send-btn{
