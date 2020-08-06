@@ -4,7 +4,6 @@ import Header from './components/header'
 import Messages from './components/messages'
 import SendMessage from './components/sendMessage'
 import firebase from './firebase/index'
-import * as fb from 'firebase'
 
 class App extends React.Component {
   state = {
@@ -15,6 +14,7 @@ class App extends React.Component {
   componentDidMount() {
     let date = Date.now()/1000
     let db = firebase.firestore()
+
     db.collection('messages').orderBy('time_stamp', 'desc').onSnapshot(snapshot => {
       let messages = snapshot.docs.map(doc => {
         const data = doc.data()

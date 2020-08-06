@@ -11,6 +11,7 @@ export default (props) => {
     }
   }, [])
 
+
   if (props.messages.length === 0) {
     return (
       null

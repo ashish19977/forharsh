@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import '../App.css'
 import { TextField, Button } from '@material-ui/core'
 import SendRoundedIcon from '@material-ui/icons/SendRounded'
@@ -19,14 +19,14 @@ export default (props) => {
       message: input,
       time_stamp: fb.firestore.FieldValue.serverTimestamp()
     }).then(docRef => {
-       setInput('')
+      setInput('')
      }).catch(e=>console.log(e))
   }
 
   return (
     <div className='send-message-div'>
       <form style={{ flex:1,display:'flex', justifyContent: 'center'}} onSubmit = { e => handleSubmit(e) } >
-        <TextField value={input} id="input" label="Message here ..." style={{ width: '80%' }} onChange = { e => setInput(e.target.value)}/>
+        <TextField autoFocus value={input} id="input" label="Message" style={{ width: '80%' }} onChange = { e => setInput(e.target.value)}/>
         <Button type='submit' style={{marginLeft:'5px'}}>
           <SendRoundedIcon fontSize='large' color='primary'/>
         </Button>
